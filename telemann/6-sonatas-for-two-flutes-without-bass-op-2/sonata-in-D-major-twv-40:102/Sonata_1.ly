@@ -7,9 +7,9 @@
 \header {
 	title="Sonata 1"
 	composer="G.P. Telemann"
- mutopiatitle = "Sonatas for two recorders"
+ mutopiatitle = "Sonatas for two flutes"
  mutopiacomposer = "TelemannGP"
- mutopiainstrument = "Recorder duet"
+ mutopiainstrument = "Flute duet"
  date = "1730s"
  source = "Nouvelle Édition gravée par Joseph-Louis Renou. À Paris"
  style = "Baroque"
@@ -479,13 +479,13 @@ d,4.
 
 
 globalUn={
- \set Staff.instrumentName = "Recorder 1"
-	\set Staff.midiInstrument = "clav"
+ \set Staff.instrumentName = "Flute 1"
+	\set Staff.midiInstrument = "flute"
 }
 
 globalDeux={
- \set Staff.instrumentName = "Recorder 2"
-\set Staff.midiInstrument = "recorder"
+ \set Staff.instrumentName = "Flute 2"
+\set Staff.midiInstrument = "flute"
 }
 
 globalA={
@@ -554,7 +554,7 @@ globalDDeux={
 
 % PREMIER MOUVEMENT
 	\score	
-	{\transpose d f''
+	{\transpose d d''
 		<<
 			\new Staff    << 
 					\globalAUn
@@ -581,7 +581,7 @@ globalDDeux={
 
 % DEUXIÈME MOUVEMENT
 	\score	
-	{\transpose d f''
+	{\transpose d d''
 		<<
 			\new Staff    << 
 					\globalBUn
@@ -608,7 +608,7 @@ globalDDeux={
 
 % TROISIÈME MOUVEMENT
 	\score	
-	{\transpose d f''
+	{\transpose d d''
 		<<
 			\new Staff    << 
 					\globalCUn
@@ -635,7 +635,7 @@ globalDDeux={
 
 % QUATRIÈME MOUVEMENT
 	\score	
-	{\transpose d f''
+	{\transpose d d''
 		<<
 			\new Staff    << 
 					\globalDUn

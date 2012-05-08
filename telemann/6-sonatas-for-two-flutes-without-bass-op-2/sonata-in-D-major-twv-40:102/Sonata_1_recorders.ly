@@ -1,7 +1,7 @@
-\version "2.8.0"
+\version "2.15.32"
 
 %#(set-global-staff-size 14)
-%# (set-default-paper-size "a4")
+#(set-default-paper-size "letter")
 \paper{bottom-margin=2\cm}
 
 \header {
@@ -19,12 +19,12 @@
  maintainerWeb = "http://student.ulb.ac.be/~lclaesse/"
  lastupdated = "16/Dec/2006"
  footer = "Mutopia-2006/12/18-885"
- tagline = \markup { \override #'(box-padding . 1.0) \override #'(baseline-skip . 2.7) \box \center-align { \small \line { Sheet music from \with-url #"http://www.MutopiaProject.org" \line { \teeny www. \hspace #-1.0 MutopiaProject \hspace #-1.0 \teeny .org \hspace #0.5 } • \hspace #0.5 \italic Free to download, with the \italic freedom to distribute, modify and perform. } \line { \small \line { Typeset using \with-url #"http://www.LilyPond.org" \line { \teeny www. \hspace #-1.0 LilyPond \hspace #-1.0 \teeny .org } by \maintainer \hspace #-1.0 . \hspace #0.5 Reference: \footer } } \line { \teeny \line { This sheet music has been placed in the public domain by the typesetter, for details see: \hspace #-0.5 \with-url #"http://creativecommons.org/licenses/publicdomain" http://creativecommons.org/licenses/publicdomain } } } }
+ tagline = \markup { \override #'(box-padding . 1.0) \override #'(baseline-skip . 2.7) \box \center-column { \small \line { Sheet music from \with-url #"http://www.MutopiaProject.org" \line { \teeny www. \hspace #-1.0 MutopiaProject \hspace #-1.0 \teeny .org \hspace #0.5 } • \hspace #0.5 \italic Free to download, with the \italic freedom to distribute, modify and perform. } \line { \small \line { Typeset using \with-url #"http://www.LilyPond.org" \line { \teeny www. \hspace #-1.0 LilyPond \hspace #-1.0 \teeny .org } by \maintainer \hspace #-1.0 . \hspace #0.5 Reference: \footer } } \line { \teeny \line { This sheet music has been placed in the public domain by the typesetter, for details see: \hspace #-0.5 \with-url #"http://creativecommons.org/licenses/publicdomain" http://creativecommons.org/licenses/publicdomain } } } }
 }
 
 
 
-FluteUnMovA={
+RecorderUnMovA={
 %3
 d16 e fis g a8 b16 cis' d'8 d r8 cis
 b,16 cis d e fis8 g16 a b8 b,8 r8 a, 
@@ -62,7 +62,7 @@ fis cis d b, 		cis8. d16 		d4 				r4
  }
 
 
-FluteDeuxMovA={
+RecorderDeuxMovA={
 r2 d16 e fis g a8 b16 cis' d'8 d r8 cis
 b,16 cis d e fis8 g16 a b8 b,8 r8 a, 
  g,16 a, b, cis d8 e16 fis
@@ -97,7 +97,7 @@ e, e dis e		g e dis e	a,4		r16 e d cis
 d a, b, g,		a,8 a,		d,4		r4
 }
 
-FluteUnMovB={
+RecorderUnMovB={
 r1
 r1
 r1
@@ -165,7 +165,7 @@ d2 r2
 
 
 
-FluteDeuxMovB={
+RecorderDeuxMovB={
 a,4 d b,8 cis16 d e8 d
 cis a,		 fis a,		 b, g, 		e g,
 a, fis, d fis, g, e, cis e,
@@ -230,7 +230,7 @@ fis8[ e] fis[ b,] a,[ d] g,[ a,]
 d,2 r2
 }
 
-FluteUnMovC={
+RecorderUnMovC={
 r4 fis4 fis 
 b2.(
 b8) ais b cis' fis e
@@ -270,7 +270,7 @@ d8) e cis4. b,8
 b,2.
 }
 
-FluteDeuxMovC={
+RecorderDeuxMovC={
 b,8 cis d cis b, a,
 g, fis, e, fis, g, e,
 fis,4 r4 ais,4
@@ -321,7 +321,7 @@ d'16[ cis'32 b] a[ g fis e] a[ g fis e]
 fis16 a fis a fis a
 }
 
-FluteUnMovD={
+RecorderUnMovD={
 fis16 g g4
 a16[ g32 fis] g[ fis e d] a16[ d]
 b8 g4
@@ -404,7 +404,7 @@ d4.
 
 
 
-FluteDeuxMovD={
+RecorderDeuxMovD={
 d16 e e4
 fis8 r8 r8
 g8 e4
@@ -479,12 +479,12 @@ d,4.
 
 
 globalUn={
- \set Staff.instrument = "Recorder 1"
-	\set Staff.midiInstrument = "clav"
+ \set Staff.instrumentName = "Recorder 1"
+	\set Staff.midiInstrument = "recorder"
 }
 
 globalDeux={
- \set Staff.instrument = "Recorder 2"
+ \set Staff.instrumentName = "Recorder 2"
 \set Staff.midiInstrument = "recorder"
 }
 
@@ -558,18 +558,23 @@ globalDDeux={
 		<<
 			\new Staff    << 
 					\globalAUn
-					\FluteUnMovA
+					\RecorderUnMovA
 						>>
 			\new Staff << 
 					\globalADeux
-					 \FluteDeuxMovA
+					 \RecorderDeuxMovA
 						>>
 		>>
 		\header {
 		     piece = \markup { \hspace #12 \large \bold "Dolce" }
 		}
 	
-	\midi {\tempo 4=50}
+	
+  \midi {
+    \tempo 4 = 50
+    }
+
+
 	\layout{}
 	} 
 
@@ -580,18 +585,23 @@ globalDDeux={
 		<<
 			\new Staff    << 
 					\globalBUn
-					\FluteUnMovB
+					\RecorderUnMovB
 						>>
 			\new Staff << 
 					\globalBDeux
-					\FluteDeuxMovB
+					\RecorderDeuxMovB
 						>>
 		>>
 		\header {
 		     piece = \markup { \hspace #12 \large \bold "Allegro" }
 		}
 	
-	\midi {\tempo 4=80}
+	
+  \midi {
+    \tempo 4 = 80
+    }
+
+
 	\layout{}
 	} 
 
@@ -602,18 +612,23 @@ globalDDeux={
 		<<
 			\new Staff    << 
 					\globalCUn
-					\FluteUnMovC
+					\RecorderUnMovC
 						>>
 			\new Staff << 
 					\globalCDeux
-					\FluteDeuxMovC
+					\RecorderDeuxMovC
 						>>
 		>>
 		\header {
 		     piece = \markup { \hspace #12 \large \bold "Largo" }
 		}
 	
-	\midi {\tempo 4=80}
+	
+  \midi {
+    \tempo 4 = 80
+    }
+
+
 	\layout{}
 	} 
 
@@ -624,18 +639,23 @@ globalDDeux={
 		<<
 			\new Staff    << 
 					\globalDUn
-					\FluteUnMovD
+					\RecorderUnMovD
 						>>
 			\new Staff <<  
 					\globalDDeux
-					\FluteDeuxMovD
+					\RecorderDeuxMovD
 						>>
 		>>
 		\header {
 		     piece = \markup { \hspace #12 \large \bold "Vivace" }
 		}
 	
-	\midi {\tempo 4=80}
+	
+  \midi {
+    \tempo 4 = 80
+    }
+
+
 	\layout{}
 	} % End of score
 
